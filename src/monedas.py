@@ -1,12 +1,16 @@
 from configuraciones import *
 from imagenes_sonidos import *
 
+
 #creamos lista de moneda 
 def cargar_nuevos_coins(coins, cantidad, imagen = None):
+    #cargamos nuevos coins con la lista, cantidad y imagen. 
+
     for i in range(cantidad):
-        coins.append(crear_bloque(imagen, randint(0,width-block_width),randint(0,height-size_coins), size_coins,size_coins))
+        coins.append(crear_bloque(imagen, randint(0,width-block_width),randint(50,height-size_coins), size_coins,size_coins))
 
 def dibujar_coins(pantalla, coins):
+    #dibujamos los coin y redimencionamos la imagen 
     for coin in coins:
         if coin["imagen"]:
             pantalla.blit(coin["imagen"], coin["rect"])
@@ -21,18 +25,18 @@ velocidad_y = 5
 size_coins = 23
 color = red
 
-
-
 coins = []
 cargar_nuevos_coins(coins, 25, coins_imagen)
 
 #-------------------------huesos-------------------------------------------
 
 def cargar_nuevos_huesos(huesos, cantidad, imagen = None):
+    #cargamos la cantidad de huesos que queremos. 
     for i in range(cantidad):
-        huesos.append(crear_bloque(imagen, randint(0,width-block_width),randint(0,height-size_coins), 30,30))
+        huesos.append(crear_bloque(imagen, randint(0,width-block_width),randint(50,height-size_coins), 30,30))
 
 def dibujar_huesos(pantalla, huesos):
+    #dibujamos los huesos 
     for h in huesos:
         if h["imagen"]:
             pantalla.blit(h["imagen"], h["rect"])

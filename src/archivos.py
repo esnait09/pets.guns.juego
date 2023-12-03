@@ -6,6 +6,9 @@ import json
 
 
 def gestionar_json(contador, high_score_file):
+#la función intenta cargar un puntaje máximo almacenado en un archivo JSON.
+#Luego, compara este puntaje con el puntaje actual y lo actualiza si es necesario
+#Finalmente, guarda el nuevo puntaje máximo en el archivo JSON
     
     try:
         with open(high_score_file, "r") as file:
@@ -26,6 +29,9 @@ def gestionar_json(contador, high_score_file):
         print("Error al intentar guardar el archivo JSON.")
 
 def obtener_max_puntuacion(high_score_file="nombre_del_archivo.json"):
+#el puntaje máximo almacenado en un archivo JSON. 
+#Si el archivo no existe, o si no hay una clave "max_contador" en el archivo, devuelve 0.
+
     try:
         with open(high_score_file, "r") as file:
             high_score_data = json.load(file)

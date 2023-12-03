@@ -32,6 +32,7 @@ def mover_donna(donna_rect, move_right, move_left, move_up, move_down, width, he
                               donna_rect.top += SPEED_DONNA
 
 def mover_y_eliminar_laser(laser):
+    #creamos el laser en tipo cuadrado y lo movemos por el eje y. controlamos la desaparicion del laser 
     if laser:
         if laser["rect"].bottom >= 0:
             laser["rect"].move_ip(0, -laser["velocidad_y"])
