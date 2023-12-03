@@ -91,14 +91,19 @@ def dibujar_enemigos(pantalla,malos):
             pygame.draw.rect(pantalla, malo["color"], malo["rect"])
 
 def nueva_oleada(pantalla, fuente, width, height, oleada, malos, cant_enemigos, imagen_malos):
-    #creamos una nueva oleada, mostramos un rectangulo con la palabra oleada y pausamos la pantalla por 2seg
+    try:
+        # Intenta cargar la nueva oleada de enemigos
+        oleada += 1
+        mostrar_texto(pantalla, f"¡ Oleada {oleada} !", fuente, (width // 2, height // 2), white, black)
+        pygame.display.flip()
+        pygame.time.delay(2000)  # Pausa por 2000 milisegundos (2 segundos) para que el mensaje sea visible
+        cant_enemigos += 1
+        cargar_enemigos(malos, cant_enemigos, imagen_malos)
+    except Exception as e:
+        # Maneja cualquier excepción que pueda ocurrir durante la carga de enemigos
+        print(f"Error al cargar la nueva oleada: {e}")
 
-    oleada += 1
-    mostrar_texto(pantalla, f"¡ Oleada {oleada} !", fuente, (width // 2, height // 2), white, black)
-    pygame.display.flip()
-    pygame.time.delay(2000)  # Pausa por 2000 milisegundos (2 segundos) para que el mensaje sea visible
-    cant_enemigos += 1
-    cargar_enemigos(malos, cant_enemigos, imagen_malos)
+
     return oleada
 
 def eliminar_todos_los_malos(malos):

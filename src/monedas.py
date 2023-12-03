@@ -22,7 +22,7 @@ block_width = 50
 block_height = 50
 velocidad_x = 5
 velocidad_y = 5
-size_coins = 23
+size_coins = 30
 color = red
 
 coins = []
@@ -33,7 +33,7 @@ cargar_nuevos_coins(coins, 25, coins_imagen)
 def cargar_nuevos_huesos(huesos, cantidad, imagen = None):
     #cargamos la cantidad de huesos que queremos. 
     for i in range(cantidad):
-        huesos.append(crear_bloque(imagen, randint(0,width-block_width),randint(50,height-size_coins), 30,30))
+        huesos.append(crear_bloque(imagen, randint(0,width-block_width),randint(50,height-size_coins), 40,40))
 
 def dibujar_huesos(pantalla, huesos):
     #dibujamos los huesos 

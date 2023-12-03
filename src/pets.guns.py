@@ -188,9 +188,6 @@ while True:
             gestionar_json(contador,high_score_file)
             max_contador = obtener_max_puntuacion(high_score_file)
 
-          
-                  
-      
       #PANTALLA FINAL 
       pantalla.fill(black) 
       game_over_sonido.play()
